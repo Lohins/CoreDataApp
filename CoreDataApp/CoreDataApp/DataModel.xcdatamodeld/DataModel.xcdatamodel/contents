@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Apple" representedClassName="Apple" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="Decimal" defaultValueString="9" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Apple" inverseName="relationship" inverseEntity="Apple" syncable="YES"/>
+    </entity>
+    <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
+        <relationship name="contain" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employer" inverseName="department" inverseEntity="Employer" syncable="YES"/>
+        <fetchedProperty name="recentHire" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Employer"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Employer" representedClassName="EmployerMO" parentEntity="Person" syncable="YES" codeGenerationType="class">
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="contain" inverseEntity="Department" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Apple" positionX="-315" positionY="-93" width="128" height="73"/>
+        <element name="Employer" positionX="-272" positionY="36" width="128" height="58"/>
+        <element name="Department" positionX="-63" positionY="36" width="128" height="86"/>
+        <element name="Person" positionX="-180" positionY="150" width="128" height="75"/>
+    </elements>
+</model>
